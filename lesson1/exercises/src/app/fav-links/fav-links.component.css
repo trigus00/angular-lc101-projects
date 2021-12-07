@@ -1,0 +1,8 @@
+.favLinks {
+    width: 100%;
+    text-align: center;
+}
+.favLinks a {
+    color: green;
+    margin: 10px;
+}
