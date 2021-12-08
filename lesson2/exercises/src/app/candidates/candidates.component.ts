@@ -16,6 +16,8 @@ export class CandidatesComponent implements OnInit {
     {name: 'Champ', data: {age: 9, mass: '36 kg', sidekick: 'Carly'}, image: 'assets/images/Carly.png'}
   ];
 
+  selected;
+
   crew = [];
 
   constructor() { }
@@ -24,9 +26,26 @@ export class CandidatesComponent implements OnInit {
   }
 
   // Code the addToCrew function here:
+  addToCrew(crewMember:{name:string, data: object, image:string}):void {
+    if(crewMember) this.crew.push(crewMember)
+  }
 
+  hasCrew(crewMember:{name:string, data: object, image:string}):boolean {
+    for(let c of this.crew) {
+      if(c.name == crewMember.name) {
+        return false
+      }
+    }
+    return true
+  }
+
+  notFull():boolean {
+    return this.crew.length < 3
+  }
 
   // BONUS: Code the changeMissionName function here:
-
+  changeMissionName(name:string):void {
+    this.missionName = name
+  }
 
 }
